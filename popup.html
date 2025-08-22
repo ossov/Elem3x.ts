@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elem3x Editor</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>Elem3x Editor</h3>
+            <div class="toggle-container">
+                <label for="inspector-toggle">Inspector</label>
+                <label class="switch">
+                    <input type="checkbox" id="inspector-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+
+        <div id="editor-panel" class="hidden">
+            <div class="selector-group">
+                <h4>CSS Selector</h4>
+                <div class="radio-group">
+                    <input type="radio" id="class-selector-radio" name="selector-type" value="class">
+                    <label for="class-selector-radio" id="class-selector-label">.class</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="path-selector-radio" name="selector-type" value="path">
+                    <label for="path-selector-radio" id="path-selector-label">path</label>
+                </div>
+            </div>
+
+            <div class="controls-group">
+                <h4>Edit Styles</h4>
+                <div class="control">
+                    <label for="color">Color</label>
+                    <input type="color" id="color" name="color">
+                </div>
+                <div class="control">
+                    <label for="font-size">Font Size (px)</label>
+                    <input type="number" id="font-size" name="fontSize" min="1" step="1">
+                </div>
+                <div class="control">
+                    <label for="font-weight">Font Weight</label>
+                    <input type="number" id="font-weight" name="fontWeight" min="100" max="900" step="100">
+                </div>
+                <div class="control">
+                    <label for="border-radius">Border Radius (px)</label>
+                    <input type="number" id="border-radius" name="borderRadius" min="0" step="1">
+                </div>
+            </div>
+        </div>
+        <div id="placeholder-text">
+            <p>Click the Inspector toggle and select an element on the page to begin editing.</p>
+        </div>
+    </div>
+    <script src="dist/popup.js"></script>
+</body>
+</html>

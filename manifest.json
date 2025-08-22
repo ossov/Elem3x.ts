@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Elem3x",
+  "version": "1.0",
+  "description": "Easily inspect and edit CSS on any website.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {},
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["dist/content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.html", "popup.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

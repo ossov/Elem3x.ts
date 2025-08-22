@@ -1,0 +1,14 @@
+/* content.css */
+#elem3x-editor-iframe {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 310px; /* A bit wider to accommodate scrollbars if needed */
+    height: 450px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999999;
+    background-color: white; /* Ensures content isn't transparent */
+    overflow: hidden;
+}
