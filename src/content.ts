@@ -1,5 +1,7 @@
 // src/content.ts
 
+import { toKebabCase } from "./utils";
+
 let isInspectorActive = false;
 let selectedElement: HTMLElement | null = null;
 let highlightOverlay: HTMLDivElement | null = null;
@@ -213,15 +215,31 @@ function generateSelectors(el: Element): { simple?: string; specific?: string; s
     return selectors;
 }
 
+
+
 function getComputedStyles(el: HTMLElement) {
     const styles = window.getComputedStyle(el);
-    return {
-        color: styles.color,
-        fontSize: styles.fontSize,
-        fontWeight: styles.fontWeight,
-        borderRadius: styles.borderRadius,
-    };
+    const allStyles: { [key: string]: string } = {};
+    const properties = [
+        // Typography
+        'color', 'fontSize', 'fontWeight', 'fontStyle', 'textAlign', 'lineHeight', 
+        'textDecoration', 'letterSpacing', 'wordSpacing', 'textTransform',
+        // Layout & Spacing
+        'display', 'width', 'height', 'paddingTop', 'paddingRight', 'paddingBottom', 
+        'paddingLeft', 'justifyContent', 'alignItems',
+        // Appearance
+        'backgroundColor', 'opacity', 'border', 'borderRadius', 'boxShadow',
+        // Advanced
+        'transform', 'transition'
+    ];
+    
+    properties.forEach(prop => {
+        allStyles[prop] = styles.getPropertyValue(toKebabCase(prop));
+    });
+
+    return allStyles;
 }
+
 
 function applyStyles(selector: string, styles: Record<string, string>) {
     if (!styleTag) {
@@ -230,13 +248,10 @@ function applyStyles(selector: string, styles: Record<string, string>) {
         document.head.appendChild(styleTag);
     }
     
+    // This is the line to change
     const styleRules = Object.entries(styles)
-      .map(([prop, value]) => `${cssCase(prop)}: ${value} !important;`)
+      .map(([prop, value]) => `${toKebabCase(prop)}: ${value} !important;`)
       .join(' ');
 
     styleTag.innerHTML = `${selector} { ${styleRules} }`;
-}
-
-function cssCase(str: string): string {
-    return str.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
 }

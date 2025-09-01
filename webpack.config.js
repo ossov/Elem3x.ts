@@ -5,6 +5,7 @@ module.exports = {
     content: './src/content.ts',
     background: './src/background.ts',
     popup: './src/popup.ts',
+    // We don't need to add utils.ts here, Webpack finds it via the imports
   },
   module: {
     rules: [

@@ -31,23 +31,143 @@
             </div>
 
             <div class="controls-group">
-                <h4>Edit Styles</h4>
-                <div class="control">
-                    <label for="color">Color</label>
-                    <input type="color" id="color" name="color">
-                </div>
-                <div class="control">
-                    <label for="font-size">Font Size (px)</label>
-                    <input type="number" id="font-size" name="fontSize" min="1" step="1">
-                </div>
-                <div class="control">
-                    <label for="font-weight">Font Weight</label>
-                    <input type="number" id="font-weight" name="fontWeight" min="100" max="900" step="100">
-                </div>
-                <div class="control">
-                    <label for="border-radius">Border Radius (px)</label>
-                    <input type="number" id="border-radius" name="borderRadius" min="0" step="1">
-                </div>
+                <details open>
+                    <summary>Typography</summary>
+                    <div class="control">
+                        <label for="color">Color</label>
+                        <input type="color" id="color" name="color">
+                    </div>
+                    <div class="control">
+                        <label for="font-size">Font Size (px)</label>
+                        <input type="number" id="font-size" name="fontSize" min="1" step="1">
+                    </div>
+                    <div class="control">
+                        <label for="font-weight">Font Weight</label>
+                        <input type="number" id="font-weight" name="fontWeight" min="100" max="900" step="100">
+                    </div>
+                     <div class="control">
+                        <label for="line-height">Line Height</label>
+                        <input type="text" id="line-height" name="lineHeight" placeholder="1.5 or 24px">
+                    </div>
+                    <div class="control">
+                        <label for="letter-spacing">Letter Spacing (px)</label>
+                        <input type="number" id="letter-spacing" name="letterSpacing" step="0.1">
+                    </div>
+                    <div class="control">
+                        <label for="word-spacing">Word Spacing (px)</label>
+                        <input type="number" id="word-spacing" name="wordSpacing" step="0.1">
+                    </div>
+                    <div class="control">
+                        <label for="text-align">Text Align</label>
+                        <select id="text-align" name="textAlign">
+                            <option value="left">Left</option>
+                            <option value="center">Center</option>
+                            <option value="right">Right</option>
+                            <option value="justify">Justify</option>
+                        </select>
+                    </div>
+                    <div class="control">
+                        <label for="font-style">Font Style</label>
+                        <select id="font-style" name="fontStyle">
+                            <option value="normal">Normal</option>
+                            <option value="italic">Italic</option>
+                            <option value="oblique">Oblique</option>
+                        </select>
+                    </div>
+                    <div class="control">
+                        <label for="text-decoration">Decoration</label>
+                        <select id="text-decoration" name="textDecoration">
+                            <option value="none">None</option>
+                            <option value="underline">Underline</option>
+                            <option value="overline">Overline</option>
+                            <option value="line-through">Line-through</option>
+                        </select>
+                    </div>
+                    <div class="control">
+                        <label for="text-transform">Transform</label>
+                        <select id="text-transform" name="textTransform">
+                            <option value="none">None</option>
+                            <option value="uppercase">Uppercase</option>
+                            <option value="lowercase">Lowercase</option>
+                            <option value="capitalize">Capitalize</option>
+                        </select>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Layout & Spacing</summary>
+                     <div class="control">
+                        <label for="display">Display</label>
+                        <select id="display" name="display">
+                            <option value="block">block</option>
+                            <option value="inline-block">inline-block</option>
+                            <option value="inline">inline</option>
+                            <option value="flex">flex</option>
+                            <option value="grid">grid</option>
+                            <option value="none">none</option>
+                        </select>
+                    </div>
+                    <div class="control">
+                        <label for="width">Width</label>
+                        <input type="text" id="width" name="width" placeholder="100px or 50%">
+                    </div>
+                    <div class="control">
+                        <label for="height">Height</label>
+                        <input type="text" id="height" name="height" placeholder="100px or auto">
+                    </div>
+                    <label class="sub-label">Padding (px)</label>
+                    <div class="four-grid">
+                        <input type="number" name="paddingTop" placeholder="Top">
+                        <input type="number" name="paddingRight" placeholder="Right">
+                        <input type="number" name="paddingBottom" placeholder="Bottom">
+                        <input type="number" name="paddingLeft" placeholder="Left">
+                    </div>
+                     <div class="control">
+                        <label for="justify-content">Justify Content</label>
+                        <input type="text" id="justify-content" name="justifyContent" placeholder="center">
+                    </div>
+                    <div class="control">
+                        <label for="align-items">Align Items</label>
+                        <input type="text" id="align-items" name="alignItems" placeholder="center">
+                    </div>
+                </details>
+                
+                <details>
+                    <summary>Appearance</summary>
+                     <div class="control">
+                        <label for="background-color">Background</label>
+                        <input type="color" id="background-color" name="backgroundColor">
+                    </div>
+                     <div class="control">
+                        <label for="opacity">Opacity</label>
+                        <input type="number" id="opacity" name="opacity" min="0" max="1" step="0.1">
+                    </div>
+                    <div class="control">
+                        <label for="border">Border</label>
+                        <input type="text" id="border" name="border" placeholder="1px solid #000">
+                    </div>
+                    <div class="control">
+                        <label for="border-radius">Border Radius (px)</label>
+                        <input type="number" id="border-radius" name="borderRadius" min="0" step="1">
+                    </div>
+                    <div class="control">
+                        <label for="box-shadow">Box Shadow</label>
+                        <input type="text" id="box-shadow" name="boxShadow" placeholder="0px 2px 4px #0005">
+                    </div>
+                </details>
+
+                 <details>
+                    <summary>Advanced</summary>
+                     <div class="control">
+                        <label for="transform">Transform</label>
+                        <input type="text" id="transform" name="transform" placeholder="rotate(45deg)">
+                    </div>
+                     <div class="control">
+                        <label for="transition">Transition</label>
+                        <input type="text" id="transition" name="transition" placeholder="all 0.3s ease">
+                    </div>
+                </details>
+
             </div>
         </div>
         <div id="placeholder-text">
